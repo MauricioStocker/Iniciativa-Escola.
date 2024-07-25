@@ -37,7 +37,8 @@ public class RespostaModel implements Serializable {
     @JoinColumn(name = "aluno_id", nullable = false)
     private AlunoModel aluno;
 
-    @ManyToOne
+
+   @ManyToOne
     @JoinColumn(name = "questao_id", nullable = false)
     private QuestaoModel questao;
 }

@@ -14,6 +14,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,5 +41,15 @@ public class DisciplinaModel implements Serializable {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(mappedBy = "disciplinas", fetch = FetchType.LAZY)
     private Set<AlunoModel> alunos = new HashSet<>();
+
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "disciplina", fetch = FetchType.LAZY)
+    private Set<QuestaoModel> questaoModels = new HashSet<>();
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "disciplina", fetch = FetchType.LAZY)
+    private Set<ProgressoModel> progressoModels = new HashSet<>();
+
 
 }
